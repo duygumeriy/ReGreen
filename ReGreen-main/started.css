@@ -1,0 +1,155 @@
+/* style-upload.css */
+
+/* Genel Sıfırlama ve Temel Ayarlar (Aynı) */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background-color: #f0fdf4; color: #14532d; line-height: 1.6; }
+.upload-page-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+a { text-decoration: none; color: inherit; }
+
+/* Header Stilleri (Aynı) */
+header { display: flex; justify-content: space-between; align-items: center; padding: 25px 0; border-bottom: 1px solid #dcfce7; margin-bottom: 30px; }
+.logo { display: flex; align-items: center; font-size: 1.8em; font-weight: 600; color: #166534; }
+.logo svg { margin-right: 10px; } .logo span { vertical-align: middle; }
+nav { display: flex; align-items: center; } .nav-link { margin-right: 25px; font-weight: 500; transition: color 0.3s ease; }
+.nav-link:hover { color: #16a34a; }
+
+/* Düğme Stilleri (Aynı Temel) */
+.btn { padding: 10px 25px; border-radius: 8px; font-weight: 500; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.1s ease; border: 1px solid transparent; font-size: 0.95em; }
+.btn:active { transform: scale(0.97); }
+.btn-outline { border: 1.5px solid #166534; color: #166534; background-color: transparent; }
+.btn-outline:hover { background-color: #dcfce7; }
+.btn-solid { background-color: #166534; color: #ffffff; border: none; }
+.btn-solid:hover { background-color: #15803d; }
+
+/* Ana İçerik Alanı */
+.upload-content { text-align: center; padding: 20px 0; }
+.upload-content h2 { font-size: 2.2em; font-weight: 600; margin-bottom: 10px; color: #14532d; }
+.upload-content p { font-size: 1.1em; margin-bottom: 40px; color: #166534; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+/* ----- YENİ: Yükleme Alanı Stilleri ----- */
+.upload-area {
+    background-color: #ffffff;
+    border: 1px solid #dcfce7;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 500px;
+    margin: 0 auto 50px auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+    display: flex; /* Placeholder ve butonu hizalamak için */
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-placeholder {
+    border: 3px dashed #bbf7d0;
+    border-radius: 10px;
+    width: 100%; /* Alanı doldur */
+    min-height: 200px; /* Minimum yükseklik */
+    display: flex;
+    flex-direction: column; /* İkon ve metni alt alta */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    color: #16a34a; /* İkon ve metin rengi */
+    cursor: pointer; /* Tıklanabilir olduğunu belirt */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+    padding: 20px;
+}
+.upload-placeholder:hover {
+    background-color: #f0fdf4; /* Hafif hover efekti */
+    border-color: #86efac;
+}
+
+.upload-placeholder i {
+    color: #6ee7b7; /* Daha soluk ikon rengi */
+    margin-bottom: 15px;
+}
+
+.upload-placeholder .upload-text {
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 10px; /* Dosya adından önce boşluk */
+    color: #166534;
+}
+
+.upload-placeholder .file-name {
+    font-size: 0.85em;
+    color: #15803d;
+    font-style: italic;
+    display: block; /* Ayrı satırda */
+    margin-top: 5px;
+    word-break: break-all; /* Uzun dosya adları için */
+}
+
+
+/* Yükleme Düğmesi */
+.btn-upload { /* Yeni düğme sınıfı */
+    background-color: #166534;
+    color: white;
+    font-size: 1.1em; /* Biraz daha küçük olabilir */
+    padding: 12px 35px; /* Biraz daha az padding */
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.btn-upload:hover {
+    background-color: #15803d;
+}
+.btn-upload i {
+    font-size: 1em;
+}
+
+/* ----- KALDIRILDI: Tarama Çizgisi Stilleri ----- */
+/* .scan-line { ... } */
+/* @keyframes scanAnimation { ... } */
+/* .scanner-area.scanning .scan-line { ... } */
+
+/* Yükleme Mesaj Alanı */
+.message {
+    margin-top: 20px; /* Butondan sonra boşluk */
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    text-align: center;
+    display: none; /* Başlangıçta gizli */
+    width: 100%; /* Alanın genişliğini kullan */
+}
+.message.error { background-color: #fecaca; color: #b91c1c; display: block; }
+.message.success { background-color: #dcfce7; color: #15803d; display: block; }
+.message.loading { background-color: #e0f2fe; color: #075985; display: block; } /* Yükleniyor durumu için */
+
+
+/* Son Görüntülenenler Bölümü (Aynı) */
+.recent-items { margin-top: 60px; text-align: left; padding-top: 30px; border-top: 1px solid #dcfce7; }
+.recent-items h3 { font-size: 1.5em; margin-bottom: 20px; text-align: center; color: #166534; }
+.product-list { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.product-card { background-color: #ffffff; border-radius: 10px; padding: 20px; border: 1px solid #e5e7eb; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05); width: 200px; text-align: center; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.product-card:hover{ transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); }
+.product-card img { max-width: 80px; height: auto; margin-bottom: 15px; border-radius: 6px; }
+.product-card h4 { font-size: 1em; font-weight: 600; margin-bottom: 5px; color: #14532d; }
+.product-card p { font-size: 0.85em; color: #16a34a; margin-bottom: 10px; }
+.product-card .rating { font-size: 0.9em; font-weight: 500; color: #15803d; }
+.product-card .rating i { color: #facc15; margin-left: 3px; }
+
+/* Duyarlılık (Benzer Şekilde Ayarlanabilir) */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 15px; }
+    .upload-content h2 { font-size: 1.8em; }
+    .upload-content p { font-size: 1em; margin-bottom: 30px; }
+    .upload-area { padding: 30px; }
+    .upload-placeholder { min-height: 180px; }
+    .btn-upload { font-size: 1em; padding: 10px 30px; }
+}
+@media (max-width: 480px) {
+     .upload-content h2 { font-size: 1.6em; }
+     .upload-area { padding: 20px; }
+     .upload-placeholder { min-height: 150px; }
+     .upload-placeholder i { font-size: 3em; }
+     .btn-upload { font-size: 1em; padding: 10px 25px; width: 100%; }
+     .product-list { justify-content: space-around; }
+     .product-card { width: calc(50% - 15px); }
+     .recent-items h3 { font-size: 1.3em; }
+}
+@media (max-width: 380px) { .product-card { width: 80%; } }

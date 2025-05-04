@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReGreen - Analize Başla</title>
+    <!-- CSS Dosyaları -->
+    <!-- <link rel="stylesheet" href="style.css"> Eğer genel stil dosyan varsa buraya ekle -->
+    <link rel="stylesheet" href="started.css"> <!-- Bu sayfaya özel stiller -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="upload-page-container"> <!-- Sayfanın ana kapsayıcısı -->
+        <header>
+            <!-- Logo -->
+            <div class="logo">
+                <svg width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <title>Geometrik Yaprak Logosu</title>
+                    <path d="M50 90 L20 60 L20 30 L50 10 L50 90 Z" fill="#166534"/>
+                    <path d="M50 10 L80 30 L80 60 L50 50 L50 10 Z" fill="#22c55e"/>
+                    <path d="M50 50 L80 60 L80 90 L50 90 L50 50 Z" fill="#4CAF50"/>
+                </svg>
+                <span>ReGreen</span>
+            </div>
+            <!-- Navigasyon -->
+            <nav>
+                <!-- İsteğe bağlı: Giriş/Kayıt veya Ana Sayfa linki -->
+                <a href="main.html" class="nav-link">Ana Sayfa</a>
+                <!-- <a href="signin.html" class="btn btn-outline">Giriş Yap</a> -->
+            </nav>
+        </header>
+
+        <main class="upload-content"> <!-- Ana içerik alanı -->
+            <h2>Nesneyi Analiz Et</h2>
+            <p>Karbon ayak izini ve geri dönüşüm bilgilerini öğrenmek için nesnenin fotoğrafını yükleyin veya sürükleyip bırakın.</p>
+
+            <!-- === Yükleme Alanı === -->
+            <div class="upload-area" id="upload-area">
+                <!-- 1. Gizli Dosya Girişi: Kullanıcının dosya seçmesini sağlar -->
+                <input type="file" id="image-upload-input" accept="image/*" style="display: none;">
+
+                <!-- 2. Placeholder: Sürükle-bırak alanı ve dosya adı göstergesi -->
+                <div class="upload-placeholder">
+                    <i class="fas fa-cloud-upload-alt fa-4x"></i>
+                    <p class="upload-text">Görseli buraya sürükleyin veya seçmek için tıklayın</p>
+                    <span id="file-name-display" class="file-name"></span>
+                </div>
+
+                <!-- 3. Görsel Önizleme: Yüklenen resmi gösterir -->
+                <img id="imagePreview" src="#" alt="Yüklenen Görüntü Önizlemesi" style="max-width: 200px; max-height:200px; object-fit: cover; margin-top: 15px; display: none; border-radius: 8px;">
+
+                <!-- 4. Mesaj Alanı: Yükleme durumu, hatalar vb. için kullanılır -->
+                <div id="upload-message" class="message"></div>
+
+                <!-- 5. Buton Grubu: "Görsel Seç" ve "Analiz Et" butonları -->
+                <div class="button-group" style="margin-top: 20px; display: flex; gap: 15px; justify-content: center;">
+                    <!-- Görsel Seç Butonu: Gizli input'u tetikler -->
+                    <button id="upload-button" class="btn btn-outline">
+                        <i class="fas fa-image"></i> Görsel Seç
+                    </button>
+                    <!-- Analiz Et Butonu: Görsel seçilince ortaya çıkar, analizi başlatır -->
+                    <button id="analyzeButton" class="btn btn-solid" style="display: none;">
+                        <i class="fas fa-search"></i> Analiz Et
+                    </button>
+                </div>
+            </div>
+            <!-- === Yükleme Alanı Sonu === -->
+
+            <!-- === Yükleniyor Göstergesi === -->
+            <!-- 6. Loading Indicator: Analiz sırasında döner -->
+            <div id="loadingIndicator" style="display: none; margin-top: 25px; text-align: center;">
+                <i class="fas fa-spinner fa-spin fa-2x"></i>
+                <p style="margin-top: 10px; font-weight: 500;">Analiz ediliyor, lütfen bekleyin...</p>
+            </div>
+            <!-- === Yükleniyor Göstergesi Sonu === -->
+
+            <!-- === Sonuç Alanı === -->
+            <!-- 7. Results Area: Analiz sonuçlarının tamamını kapsar -->
+            <div id="resultsArea" style="margin-top: 40px; display: none; background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); max-width: 600px; margin-left: auto; margin-right: auto; text-align: left; border: 1px solid #dcfce7;">
+                <h3><i class="fas fa-leaf"></i> Analiz Sonuçları</h3>
+                <div id="analysisResultContent" style="margin-top: 15px;">
+                    <!-- 8. objectName: Tanımlanan nesnenin adını gösterir -->
+                    <p><strong>Tanımlanan Nesne:</strong> <span id="objectName" style="font-weight: 600;">-</span></p>
+                    <!-- 9. carbonFootprint: Hesaplanan karbon ayak izini gösterir -->
+                    <p style="margin-top: 10px;"><strong>Tahmini Karbon Ayak İzi:</strong> <span id="carbonFootprint" style="font-weight: 600;">-</span> kg CO<sub>2</sub>e</p>
+                    <h4 style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;"><i class="fas fa-recycle"></i> Geri Dönüşüm ve Azaltım Önerileri:</h4>
+                    <!-- 10. recyclingInfo: Geri dönüşüm/azaltım bilgilerini gösterir -->
+                    <div id="recyclingInfo" style="white-space: pre-wrap; margin-top: 10px; background-color: #f9fafb; padding: 10px; border-radius: 6px;">-</div>
+                </div>
+                <!-- 11. errorMessage: Analiz sırasında hata olursa burada gösterilir -->
+                <div id="errorMessage" style="color: #b91c1c; background-color: #fecaca; margin-top: 15px; display: none; padding: 10px; border-radius: 6px; text-align: center;"></div>
+            </div>
+            <!-- === Sonuç Alanı Sonu === -->
+
+        </main>
+    </div>
+
+    <!-- === JavaScript Dosyaları === -->
+    <!-- ÖNEMLİ: Sıra doğru olmalı! -->
+    <!-- 1. Veri Tanımlama Script'i -->
+    <!-- <script src="veri.js"></script>  BU DOSYAYI BİR SONRAKİ ADIMDA OLUŞTURACAĞIZ -->
+    <!-- 2. Ana İşlevsellik Script'i -->
+    <script src="veri.js"></script>
+    <script src="started.js"></script> <!-- VEYA script-upload.js (kullandığın dosya adı) -->
+</body>
+</html>
