@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReGreen - Başlayın</title> <!-- Başlık Güncellendi -->
+    <link rel="stylesheet" href="style-upload.css"> <!-- CSS Dosyası Değiştirildi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="started.css">
+    <link rel="stylesheet" href="started.js">
+</head>
+<body>
+    <div class="upload-page-container"> <!-- Ana Kapsayıcı Sınıfı Değişti -->
+        <header>
+             <div class="logo">
+                <svg width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <title>Geometrik Yaprak Logosu</title>
+                     <!-- Sol Parça -->
+                     <path d="M50 90 L20 60 L20 30 L50 10 L50 90 Z" fill="#166534"/>
+                     <!-- Sağ Üst Parça -->
+                     <path d="M50 10 L80 30 L80 60 L50 50 L50 10 Z" fill="#22c55e"/>
+                     <!-- Sağ Alt Parça -->
+                     <path d="M50 50 L80 60 L80 90 L50 90 L50 50 Z" fill="#4CAF50"/>
+                   </svg>
+                <span>ReGreen</span>
+            </div>
+            <nav>
+                <a href="signup.html" class="nav-link">Sign Up</a>
+                <a href="signin.html" class="btn btn-outline">Sign In</a>
+            </nav>
+        </header>
+
+        <main class="upload-content"> <!-- Ana İçerik Sınıfı Değişti -->
+            <h2>Ürün Görselini Yükle</h2> <!-- Başlık Değişti -->
+            <p>Ürünün çevre dostu alternatiflerini ve etkisini öğrenmek için görselini yükleyin.</p> <!-- Açıklama Değişti -->
+
+            <!-- Yükleme Alanı -->
+            <div class="upload-area" id="upload-area">
+                <!-- Gizli Dosya Girişi -->
+                <input type="file" id="image-upload-input" accept="image/*" style="display: none;">
+                <!-- Kamera Girişi -->
+                <video id="camera-preview" autoplay playsinline style="display: none;"></video>
+                <canvas id="camera-canvas" style="display: none;"></canvas>
+
+                <div class="upload-placeholder">
+                    <i class="fas fa-cloud-upload-alt fa-4x"></i>
+                    <p class="upload-text">Görseli buraya sürükleyin, seçmek için tıklayın veya kamera ile çekin</p>
+                    <span id="file-name-display" class="file-name"></span>
+                </div>
+                <div class="button-group">
+                    <button id="upload-button" class="btn btn-upload">
+                        <i class="fas fa-image"></i> Görsel Seç
+                    </button>
+                    <button id="camera-button" class="btn btn-camera">
+                        <i class="fas fa-camera"></i> Kamera ile Çek
+                    </button>
+                </div>
+                <div id="upload-message" class="message"></div>
+            </div>
+
+            <!-- Sonuç Gösterim Alanı -->
+            <div id="result-container" class="result-container" style="display: none;">
+                <h3>Analiz Sonucu</h3>
+                <div id="material-result" class="material-result">
+                    <p>Materyal: <span id="material-type">-</span></p>
+                    <p>Atık Kategorisi: <span id="waste-category">-</span></p>
+                </div>
+                <div id="recycling-info" class="recycling-info">
+                    <p>Geri Dönüşüm Bilgisi: <span id="recycling-details">-</span></p>
+                </div>
+            </div>
+
+            <!-- Son Görüntülenenler Bölümü (Aynı Kalabilir) -->
+            <section class="recent-items"> <!-- Sınıf adı isteğe bağlı olarak değiştirilebilir -->
+                <h3>Son Görüntülenenler</h3>
+                <div class="product-list">
+                     <!-- Örnek Ürün Kartları (scan.html'deki gibi) -->
+                     <div class="product-card"> <img src="https://via.placeholder.com/100x100.png?text=Urun+1" alt="Örnek Ürün 1"> <h4>Organik Pamuk Tişört</h4> <p>Düşük su tüketimi</p> <div class="rating">4.8 <i class="fas fa-star"></i></div> </div>
+                     <div class="product-card"> <img src="https://via.placeholder.com/100x100.png?text=Urun+2" alt="Örnek Ürün 2"> <h4>Bambu Diş Fırçası</h4> <p>Plastiksiz alternatif</p> <div class="rating">4.5 <i class="fas fa-star"></i></div> </div>
+                     <div class="product-card"> <img src="https://via.placeholder.com/100x100.png?text=Urun+3" alt="Örnek Ürün 3"> <h4>Cam Saklama Kabı</h4> <p>Tekrar kullanılabilir</p> <div class="rating">4.7 <i class="fas fa-star"></i></div> </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script-upload.js"></script> <!-- JS Dosyası Değiştirildi -->
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPick - Görsel Yükle</title> <!-- Başlık Güncellendi -->
+    <link rel="stylesheet" href="style-upload.css"> <!-- CSS Dosyası Değiştirildi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="started.css">
+    <link rel="stylesheet" href="started.js">
+</head>
+<body>
+    <div class="upload-page-container"> <!-- Ana Kapsayıcı Sınıfı Değişti -->
+        <header>
+             <div class="logo">
+                 <!-- Logo SVG -->
+                 <svg width="30" height="30" viewBox="0 0 24 24" fill="#4CAF50" xmlns="http://www.w3.org/2000/svg"> <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#4CAF50"/> <path d="M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" fill="#66BB6A"/> <path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M16.8,15.6c-0.4,0.4-1,0.4-1.4,0L12,12.4l-3.4,3.2 c-0.4,0.4-1,0.4-1.4,0c-0.4-0.4-0.4-1,0-1.4l3.2-3.4L7.2,9.8c-0.4-0.4-0.4-1,0-1.4c0.4-0.4,1-0.4,1.4,0l3.4,3.2l3.4-3.2 c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4L13.4,12l3.2,3.4C17.2,14.6,17.2,15.2,16.8,15.6z" fill="#4CAF50" opacity="0.6"/> <path d="M17.5,4.5C17.5,4.5,17.5,4.5,17.5,4.5c-0.1-0.3-0.3-0.5-0.5-0.7c-0.6-0.6-1.5-0.6-2.1,0L12,6.7l-2.9-2.9 c-0.6-0.6-1.5-0.6-2.1,0c-0.6,0.6-0.6,1.5,0,2.1L9.9,9L7,11.9c-0.6,0.6-0.6,1.5,0,2.1c0.3,0.3,0.7,0.5,1.1,0.5s0.8-0.2,1.1-0.5 L12,11.1l2.9,2.9c0.3,0.3,0.7,0.5,1.1,0.5s0.8-0.2,1.1-0.5c0.6-0.6,0.6-1.5,0-2.1L14.1,9l2.9-2.9C17.8,5.5,17.8,4.8,17.5,4.5z" fill="#66BB6A" /> </svg>
+                <span>ReGreen</span>
+            </div>
+            <nav>
+                <a href="signup.html" class="nav-link">Sign Up</a>
+                <a href="signin.html" class="btn btn-outline">Sign In</a>
+            </nav>
+        </header>
+
+        <main class="upload-content"> <!-- Ana İçerik Sınıfı Değişti -->
+            <h2>Ürün Görselini Yükle</h2> <!-- Başlık Değişti -->
+            <p>Ürünün çevre dostu alternatiflerini ve etkisini öğrenmek için görselini yükleyin.</p> <!-- Açıklama Değişti -->
+
+            <!-- Yükleme Alanı -->
+            <div class="upload-area" id="upload-area">
+                 <!-- Gizli Dosya Girişi -->
+                 <input type="file" id="image-upload-input" accept="image/*" style="display: none;">
+
+                <div class="upload-placeholder">
+                    <!-- Yükleme veya Resim İkonu -->
+                    <i class="fas fa-cloud-upload-alt fa-4x"></i> <!-- İkon Değişti -->
+                    <p class="upload-text">Görseli buraya sürükleyin veya seçmek için tıklayın</p>
+                    <span id="file-name-display" class="file-name"></span> <!-- Seçilen dosya adını göstermek için -->
+                </div>
+                <button id="upload-button" class="btn btn-upload"> <!-- Düğme ID ve Sınıfı Değişti -->
+                    <i class="fas fa-image"></i> Görsel Seç <!-- İkon ve Metin Değişti -->
+                </button>
+                 <div id="upload-message" class="message"></div> <!-- Yükleme mesajları için -->
+            </div>
+
+            <!-- Son Görüntülenenler Bölümü (Aynı Kalabilir) -->
+            <section class="recent-items"> <!-- Sınıf adı isteğe bağlı olarak değiştirilebilir -->
+                <h3>Son Görüntülenenler</h3>
+                <div class="product-list">
+                     <!-- Örnek Ürün Kartları (scan.html'deki gibi) -->
+                     <div class="product-card"> <img src="https://via.placeholder.com/100x100.png?text=Urun+1" alt="Örnek Ürün 1"> <h4>Organik Pamuk Tişört</h4> <p>Düşük su tüketimi</p> <div class="rating">4.8 <i class="fas fa-star"></i></div> </div>
+                     <div class="product-card"> <img src="https://via.placeholder.com/100x100.png?text=Urun+2" alt="Örnek Ürün 2"> <h4>Bambu Diş Fırçası</h4> <p>Plastiksiz alternatif</p> <div class="rating">4.5 <i class="fas fa-star"></i></div> </div>
+                     <div class="product-card"> <img src="https://via.placeholder.com/100x100.png?text=Urun+3" alt="Örnek Ürün 3"> <h4>Cam Saklama Kabı</h4> <p>Tekrar kullanılabilir</p> <div class="rating">4.7 <i class="fas fa-star"></i></div> </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script-upload.js"></script> <!-- JS Dosyası Değiştirildi -->
+</body>
+</html>
